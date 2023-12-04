@@ -1,0 +1,268 @@
+/* .courseCard{
+  height: 500px;
+    border-radius: 20px;
+    border-color: none;
+    padding: 15px;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+} */
+
+  @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+
+.courseImage {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .courseImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+  }
+  
+  .courseImage:hover img {
+    filter: blur(1px); /* Set the desired transparency for the image on hover */
+    border: 0.5px solid black; 
+  }
+  
+  .courseImage:hover .likeButton {
+    display:block !important;
+    background-color: transparent;
+    backdrop-filter: blur(1px);
+   
+  }
+  
+  .likeButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+   
+  }
+  .enrollLikes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+.courseCardBody{
+  gap:20px;
+}
+.cardFooter{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 10px;
+  margin-top: auto;
+  margin-bottom: 5px;
+  margin-top: 80px;
+}
+
+
+         
+.enrollButton {
+  width: auto;
+  background-image: linear-gradient(to right, #2c3e50 0%, #3498db  51%, #2c3e50  100%);
+  /* margin: 10px; */
+  /* padding: 15px 45px; */
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.enrollButton:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+/* Lesson Page  */
+.LessonBody{
+  gap:10px;
+  
+}
+
+
+.LessonSection{
+  border-radius: 15px;
+  width: 800px;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% );
+
+}
+
+.videoCard{
+  position: relative;
+  border-radius: 15px !important;
+  padding: 20px;
+  object-fit: fill;
+  overflow: hidden !important;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.videoThumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 400px;
+  object-fit: cover; /* Scale the thumbnail to fill the container */
+}
+.reactPlayer{
+  width: 550px !important;
+  height: 350px !important;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: fill; 
+  border-radius: 15px !important;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 0 20px #eee;
+}
+
+.videoCard:hover .reactPlayer{
+  filter: blur(0.5px);
+}
+.videoCard:hover .videoControls{
+  display:block !important;
+  background-color: transparent;
+}
+.videoControls{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #2c3e50;
+  transform: translate(-50%, -50%);
+  display: none; 
+}
+
+         
+.directionButton {
+  background-image: linear-gradient(to right, #517fa4 0%, #243949  51%, #517fa4  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  /* box-shadow: 0 0 20px #eee; */
+  border-radius: 10px;
+  display: block;
+}
+
+.directionButton:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+
+@media (max-width: 768px) {
+  /* Card styles for medium screens */
+.videoCard{
+  /* width: 400px !important;
+  height: 300px !important; */
+  padding: 10px;
+}
+
+  .reactPlayer{
+    width: 350px !important;
+    height: 250px !important;
+    padding: 5px;
+  } 
+
+}
+@media (max-width: 1100px) {
+  /* Card styles for medium screens */
+
+
+  .reactPlayer{
+    width: 500px !important;
+    height: 350px !important;
+    padding: 5px;
+  } 
+
+}
+
+/* LessonList */
+.LessonsCards{
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% );
+  box-shadow: 0 0 20px #eee;
+}
+.lessonListCard:hover{
+  transform: translateX(10px) !important;
+  box-shadow: 0 0 15px aqua;
+}
+.lessonHeading, .lessonSubHeading,.LessonsCards :hover{
+  transform: none !important;
+  box-shadow: none !important;
+}
+.lessonHeading , .lessonSubHeading{
+  font-family: 'Courier Prime', sans-serif !important;
+  color: black;
+}
+.lessonHeading{
+  font-size: x-large;
+  font-weight: bold;
+}
+.lessonSubHeading{
+  font-size: medium;
+}
+.fileButton{
+  width: auto;
+  background-color: transparent !important;
+  outline: none !important;
+  border: none !important;
+}
+
+
+.updateLessonButton {
+  width: auto;
+  margin-top: 10px;
+  background-image: linear-gradient(to right, #2c3e50 0%, #3498db  51%, #2c3e50  100%);
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  border-radius: 10px;
+  display: block;
+}
+
+.updateLessonButton:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 20px #eee !important;
+}
+
+
+
+
+/* .loader */
+.loader{
+  color: red;
+  top:50%;
+  left: 50%;
+}
+
+.viewCourseBody{
+  border-radius: 10px;
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+  padding: 40px !important;
+  justify-content: center;
+  width: auto;        
+}

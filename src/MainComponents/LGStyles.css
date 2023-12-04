@@ -1,0 +1,185 @@
+.navbarStyle{
+    width: 100%;
+    height: 100px;
+}
+.LGlogo{
+    width: 100px;
+    height: 90px;
+    margin-left: 25px;
+}          
+  .navbarStyle {
+    width: auto;
+    background-image: linear-gradient(to right, #2C3E50 0%, #4CA1AF  51%, #2C3E50  100%);
+    margin: 10px !important;
+    background-color: transparent;
+    backdrop-filter:blur(8px);
+    padding: 10px !important;
+    padding-bottom: 10px;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px !important;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+
+  
+
+  .navbarStyle:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  .navBrand{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .NavbarHeading{
+    margin-left: -10px;
+    background:   linear-gradient(to right, #6A82FB, #FC5C7D);
+    background-clip: text;
+    color: transparent;
+    /* color:  #9FE2BF !important; */
+    font-size: 40px;
+    font-family:Dangrek, sans-serif;
+  }
+  .navSubHeading{
+    color: #fbd786;
+  }
+
+  .my-navbar-toggler
+ {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none;
+   
+}
+
+.my-navbar-toggler:focus
+{
+    outline: none!important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.navToggle
+{
+    width: 70px;
+    height: 70px;
+} 
+.navMenu
+{
+    width: auto;
+    height: auto;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 10px !important;
+    gap:10px;
+}
+.navbarToggle{
+  width: auto;
+}
+.dropMenu{
+  width:auto;
+  height: auto;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.0);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5.2px);
+  border: 1px solid rgba(255,255,255,255.56);  
+}
+.navItems{
+  width: auto;
+  padding: 10px;
+  /* background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+  background-clip: text;
+  color:transparent; */
+  text-decoration: none !important;
+  font-family: Nova Square, sans-serif;
+  border-radius: 10px;
+  position: relative;
+  
+}
+/* .navItems::before{
+  content: '';
+  position:absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%); 
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  z-index: -1;
+  transform-origin: left;
+}
+
+.navItems:hover::before{
+  transform: scaleX(1);
+  orientation: left;
+  box-shadow: 0 0 20px aqua;
+  
+} */
+
+.navItems::after{
+  content: '';
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0%;
+  background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%); 
+  transition: all ease 0.5s;
+}
+
+.navItems:hover::after{
+  width: 100%;
+  box-shadow: 0 0 20px aqua;
+ 
+}
+/* background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%); */
+
+@media screen and (max-width: 780px) {
+ .NavbarHeading{
+  font-size: 30px;
+ }
+ .LGlogo{
+    width: 60px;
+    height: 55px;
+    margin-left: 5px;
+ }
+
+}
+
+.menuButton{
+  width: auto;
+  background-color: transparent !important;
+  outline: none!important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.menuBrand{
+  width: auto;
+  margin-top: 20px;
+}
+.userIcon{
+  color: #213454;
+}
+
+.userName{
+  font-family: Nova Square;
+  font-size: 20px;
+  color:#fbd786 ;
+}
+
+.userIcon:hover,
+.userIcon:hover + .userName{
+  color: aqua;
+  text-shadow: 0 0 40px aqua;
+}

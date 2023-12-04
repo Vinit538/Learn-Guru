@@ -1,0 +1,1201 @@
+
+import React, { useState } from 'react';
+import { Button, Card, CardBody, CardTitle, CardFooter, CardHeader, CardText, Media, UncontrolledCollapse, Collapse,CardSubtitle } from 'reactstrap';
+import './CardStyle.css'
+import Heart from "react-animated-heart";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp,faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import ReactStars from "react-rating-stars-component";
+import { render } from "react-dom";
+      
+
+  const CourseCard = () =>{
+    const [isClick, setClick] = useState(false);
+    const [expanded, setExpanded] = useState(false);
+    const handleExpandClick = () => {
+      setExpanded(!expanded);
+    };
+
+    const ratingChanged = (newRating) => {
+      console.log(newRating);
+    };
+
+    return(
+      <div>
+        <Card style={{maxWidth:345}} >
+          <CardHeader>
+          <div className='courseImage'>
+            <img
+
+              src='../Paella-7.jpg'
+              alt='Course Card'
+              className='courseImage'
+              style={{height:'194px',width:'100%',objectFit:'cover'}} 
+            />
+          </div>
+          <div className='likeButton'>
+          <Heart  isClick={isClick} onClick={() => setClick(!isClick)} />
+          </div>
+          </CardHeader>
+          <CardBody>
+          <CardTitle tag="h5">Course Title </CardTitle>
+             <CardSubtitle tag="h6" className="mb-2 text-muted">
+                Course Subtitle
+              </CardSubtitle>
+              <CardText>
+                Card Description
+              </CardText>
+              <ReactStars
+                  count={5.0}
+                  onChange={ratingChanged}
+                  size={30}
+                  isHalf={true}
+                  emptyIcon={<i className="far fa-star"></i>}
+                  halfIcon={<i className="fa fa-star-half-alt"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                  activeColor="#ffd700"
+                />,
+                <div id='ratingStars'></div>
+              <Button color='info' outline  className='downArrow' onClick={handleExpandClick}>
+                
+                {expanded ? <FontAwesomeIcon icon={faChevronUp} beat />:<FontAwesomeIcon icon={faChevronDown} beat />} 
+              </Button>
+              <Collapse isOpen={expanded}>
+                <div>
+                <CardText tag="h6" className="mt-3">
+              Method:
+            </CardText>
+            <CardText>
+              Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10 minutes.
+            </CardText>
+            <CardText>
+              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add chicken, shrimp, and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+            </CardText>
+            <CardText>
+              Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook again without stirring, until mussels have opened and rice is just tender, 5 to 7 minutes more. (Discard any mussels that don't open.)
+            </CardText>
+            <CardText>
+              Set aside off of the heat to let rest for 10 minutes, and then serve.
+               </CardText>
+                </div>
+              </Collapse>
+          </CardBody>
+        </Card>
+      </div>
+    )
+
+  }
+
+export default CourseCard;
+
+//Card Collapse Button
+
+
+
+<Button color='info' outline  className='downArrow' onClick={handleExpandClick}>
+                
+                {expanded ? <FontAwesomeIcon icon={faChevronUp} beat />:<FontAwesomeIcon icon={faChevronDown} beat />} 
+              </Button>
+              <Collapse isOpen={expanded}>
+                <div>
+                <CardText tag="h6" className="mt-3">
+              Method:
+            </CardText>
+            <CardText>
+              Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10 minutes.
+            </CardText>
+            <CardText>
+              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add chicken, shrimp, and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+            </CardText>
+            <CardText>
+              Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook again without stirring, until mussels have opened and rice is just tender, 5 to 7 minutes more. (Discard any mussels that don't open.)
+            </CardText>
+            <CardText>
+              Set aside off of the heat to let rest for 10 minutes, and then serve.
+               </CardText>
+                </div>
+              </Collapse>
+
+    ///Rating stars
+
+      import ReactStars from "react-rating-stars-component";
+      import { render } from "react-dom";
+            
+
+     <ReactStars
+                    count={5.0}
+                    onChange={ratingChanged}
+                    size={30}
+                    isHalf={true}
+                    emptyIcon={<i className="far fa-star"></i>}
+                    halfIcon={<i className="fa fa-star-half-alt"></i>}
+                    fullIcon={<i className="fa fa-star"></i>}
+                    activeColor="yellow"
+                  />
+        <div id='ratingStars'></div>
+
+
+// import React, { useState, useEffect } from 'react';
+// import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// import axios from 'axios';
+// import base_url from '../api/bootapi';
+// import CourseCard from './CourseCard';
+
+// const AddCourse = () => {
+//   const [submitted, setSubmitted] = useState(false);
+//   const [course, setCourse] = useState({
+//     courseTitle: '',
+//     courseSubTitle: '',
+//     courseDescription: '',
+//     courseSkills: '',
+//     courseImage: '',
+//   });
+//   const [fetchedCourses, setFetchedCourses] = useState([]);
+
+//   const handleInputChange = (e) => {
+//     const { name, value, type } = e.target;
+
+//     if (type === 'file') {
+//       let reader = new FileReader();
+
+//       reader.onload = (e) => {
+//         setCourse({ ...course, [name]: e.target.result });
+//       };
+
+//       reader.readAsDataURL(e.target.files[0]);
+//     } else {
+//       setCourse({ ...course, [name]: value });
+//     }
+//   };
+
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     setSubmitted(true);
+//     postCourseDataToServer();
+//   };
+
+//   async function postCourseDataToServer() {
+//     const courseData = {
+//       courseTitle: course.courseTitle,
+//       courseSubTitle: course.courseSubTitle,
+//       courseDescription: course.courseDescription,
+//       courseSkills: course.courseSkills,
+//       courseImage: course.courseImage.split(',')[1], // Remove metadata
+//       trainerId: 'TR2023TRAI1',
+//     };
+
+//     try {
+//       const response = await axios.post(`${base_url}/course`, courseData);
+//       toast.success('Course Created');
+//       await new Promise((resolve) => setTimeout(resolve, 5000));
+//       console.log(courseData);
+//     } catch (error) {
+//       toast.error('Course Not Created');
+//       console.log(courseData);
+//       console.log(error);
+//     }
+//   }
+
+//   function getCourseData() {
+//     axios
+//       .get(`${base_url}/course`)
+//       .then((response) => {
+//         const courses = response.data;
+//         console.log(courses);
+
+//         if (courses.length > 0) {
+//           setFetchedCourses(courses);
+//         } else {
+//           toast.error('No courses found');
+//         }
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//         toast.error('Not Got Course');
+//       });
+//   }
+
+//   useEffect(() => {
+//     getCourseData();
+//   }, []);
+
+//   return (
+//     <div>
+//       <ToastContainer
+//         position="top-right"
+//         autoClose={6000}
+//         hideProgressBar={false}
+//         newestOnTop={false}
+//         closeOnClick
+//         rtl={false}
+//         pauseOnFocusLoss
+//         draggable
+//         pauseOnHover
+//         theme="colored"
+//       />
+//       <Container>
+//         <Form onSubmit={handleSubmit}>
+//           {/* ... (your existing form inputs) */}
+//           <Button type="submit" name="submitButton">
+//             Submit
+//           </Button>
+//         </Form>
+//         {submitted && (
+//           <>
+//             {fetchedCourses.map((courseItem) => (
+//               <CourseCard key={courseItem.courseId} course={courseItem} />
+//             ))}
+//           </>
+//         )}
+//         <Button  type="button">
+//           Get Course
+//         </Button>
+//       </Container>
+//     </div>
+//   );
+// };
+
+// export default AddCourse;
+
+// // import React, { useState } from 'react';
+// // import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+// // import { ToastContainer, toast } from 'react-toastify';
+// // import 'react-toastify/dist/ReactToastify.css';
+// // import { useAuth } from '../Components/AuthContext';
+// // import CourseCard from './CourseCard';
+// // import axios from 'axios';
+// // import base_url from '../api/bootapi';
+
+// // const AddCourse = () => {
+// //   const { user } = useAuth();
+// //   const [submitted, setSubmitted] = useState(false);
+// //   const [course, setCourse] = useState({
+// //     courseTitle: '',
+// //     courseSubTitle: '',
+// //     courseDescription: '',
+// //     courseSkills: '',
+// //     courseImage: '',
+// //   });
+
+// //   const handleInputChange = (e) => {
+// //     const { name, value, type } = e.target;
+
+// //     if (type === 'file') {
+// //       let reader = new FileReader();
+
+// //       reader.onload = (e) => {
+// //         // Set the base64-encoded image data to courseImage
+// //         setCourse({ ...course, [name]: e.target.result });
+// //       };
+
+// //       reader.readAsDataURL(e.target.files[0]);
+// //     } else {
+// //       // Handle other input types
+// //       setCourse({ ...course, [name]: value });
+// //     }
+// //   };
+
+// //   const handleSubmit = (event) => {
+// //     event.preventDefault();
+// //     console.log(course);
+// //     // Access base64-encoded image data
+// //     // const base64Image = course.courseImage;
+// //     // console.log(base64Image);
+// //    setSubmitted(true);
+// //     postCourseDataToServer();
+// //   };
+
+
+// //   async function postCourseDataToServer(){
+// //       const courseData={
+// //         courseTitle:course.courseTitle,
+// //         courseSubTitle:course.courseSubTitle,
+// //         courseDescription:course.courseDescription,
+// //         courseSkills:course.courseSkills,
+// //         //courseImage:course.courseImage,
+// //         courseImage: course.courseImage.split(',')[1], // Remove metadata
+// //         trainerId:'TR2023TRAI1',
+// //       };
+// //       try{
+// //         const response = await axios.post(`${base_url}/course`,courseData);
+// //         toast.success("Course Create");
+// //         await new Promise(resolve => setTimeout(resolve , 5000));
+// //         console.log(courseData);
+// //       }
+// //       catch(error){
+// //         toast.error("Course Not Created");
+// //         console.log(courseData);
+// //         console.log(error);
+// //       }
+// //   }
+  
+// //   function getCourse()
+// //   {
+// //     getCourseData();
+// //   }
+
+// //   function getCourseData()
+// //   {
+// //     axios.get(`${base_url}/course`)
+// //     .then((response)=>{
+// //       const course=response.data;
+// //       const courses = response.data;
+// //       console.log(courses);
+
+// //       if (courses.length > 0) {
+// //         setCourse(courses[0]); // Set only the first course
+// //         {courses.map((course) => (
+// //           <CourseCard key={course.courseId} course={course} />
+// //         ))}
+        
+// //       } else {
+// //         toast.error("No courses found");
+// //       }
+// //     })
+// //     .catch((error)=>{
+// //       console.log(error)
+// //       toast.error("Not Got Course")
+// //     })
+// //   }
+
+
+
+
+
+// //   return (
+// //     <div>
+// //       <ToastContainer
+// //         position="top-right"
+// //         autoClose={6000}
+// //         hideProgressBar={false}
+// //         newestOnTop={false}
+// //         closeOnClick
+// //         rtl={false}
+// //         pauseOnFocusLoss
+// //         draggable
+// //         pauseOnHover
+// //         theme="colored"
+// //       />
+// //       <Container>
+// //         <Form onSubmit={handleSubmit}>
+// //           <h1>Add Course</h1>
+// //           <FormGroup row>
+// //             <Label for='courseTitle' sm={2}>Course Title</Label>
+// //             <Input 
+// //               bsSize='lg'
+// //               spellCheck='false'
+// //               type="text"
+// //               name="courseTitle"
+// //               id="courseTitle"
+// //               placeholder='Title'
+// //               value={course.courseTitle}
+// //               onChange={handleInputChange}
+// //               required
+// //             />
+// //           </FormGroup>
+// //           <FormGroup row>
+// //             <Label for='courseSubTitle' sm={10}>Course Subtitle</Label>
+// //             <Input 
+// //               bsSize='lg'
+// //               spellCheck='false'
+// //               className='mb-3'
+// //               type="text"
+// //               name="courseSubTitle"
+// //               id="courseSubTitle"
+// //               placeholder='Sub Title'
+// //               value={course.courseSubTitle}
+// //               onChange={handleInputChange}
+// //               required
+// //             />
+// //           </FormGroup>
+// //           <FormGroup row>
+// //             <Label for='courseDescription'>Description</Label>
+// //             <Input 
+// //               bsSize='lg'
+// //               spellCheck='false'
+// //               className='mb-3'
+// //               type="textarea"
+// //               name="courseDescription"
+// //               id="courseDescription"
+// //               placeholder='Description'
+// //               value={course.courseDescription}
+// //               onChange={handleInputChange}
+// //               required
+// //             />
+// //           </FormGroup>
+// //           <FormGroup row>
+// //             <Label for='courseSkills'>Skills</Label>
+// //             <Input 
+// //               bsSize='lg'
+// //               spellCheck='false'
+// //               className='mb-3'
+// //               type="text"
+// //               name="courseSkills"
+// //               id="courseSkills"
+// //               placeholder='Skills'
+// //               value={course.courseSkills}
+// //               onChange={handleInputChange}
+// //               required
+// //             />
+// //           </FormGroup>
+// //           <FormGroup row>
+// //             <Label for="courseImage">Course Image</Label>
+// //             <Input
+// //               id="courseImage"
+// //               name="courseImage"
+// //               type="file"
+// //               onChange={handleInputChange}
+// //               accept="image/*" // Restrict to image files
+// //               required
+// //             />
+// //           </FormGroup>
+// //           <Button type="submit" name="submitButton">Submit</Button>
+// //         </Form>
+// //         {submitted && <CourseCard course={course} />}
+// //         <Button onClick={getCourse} type='submit'>Get Course</Button>
+        
+
+// //       </Container>
+// //     </div>
+// //   );
+// // };
+
+// // export default AddCourse;
+
+
+
+  // async function postCourseDataToServer() {
+  //   const courseData = {
+  //     courseTitle: course.courseTitle,
+  //     courseSubTitle: course.courseSubTitle,
+  //     courseDescription: course.courseDescription,
+  //     courseSkills: course.courseSkills,
+  //     // courseImage: course.courseImage.split(',')[1], // Remove metadata
+  //    // courseImage: course.courseImage.split(',')[1], // Remove content type
+
+  //    courseImage:course.courseImage,
+  //     trainerId: 'TR2023TRAI1',
+  //   };
+  //   try {
+  //     const response = await axios.post(`${base_url}/course`, courseData);
+  //     toast.success("Course Created");
+  //     await new Promise(resolve => setTimeout(resolve, 5000));
+  //     console.log(courseData);
+  //   } catch (error) {
+  //     toast.error("Course Not Created");
+  //     console.log(courseData);
+  //     console.log(error);
+  //   }
+  // }
+
+
+
+   async function postCourseDataToServer() {
+    const formData = new FormData();
+    formData.append('courseTitle', course.courseTitle);
+    formData.append('courseSubTitle', course.courseSubTitle);
+    formData.append('courseDescription', course.courseDescription);
+    formData.append('courseSkills', course.courseSkills);
+    formData.append('courseImage', course.courseImage);
+    formData.append('trainerId', 'TR2023TRAI1');
+  
+    try {
+      const response = await axios.post(`${base_url}/course`, formData);
+      toast.success("Course Created");
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      console.log(response.data);
+    } catch (error) {
+      toast.error("Course Not Created");
+      console.log(error);
+    }
+  }
+
+
+
+   const handleInputChange = (e) => {
+    const { name, value, type } = e.target;
+
+    if (type === 'file') {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+      setCourse({ ...course, [name]: e.target.result });
+      };
+      reader.readAsDataURL(e.target.files[0]);
+
+    } else {
+      setCourse({ ...course, [name]: value });
+    }
+  };
+
+
+  import React,{useState} from 'react'
+import { Container } from 'reactstrap';
+import { Player, BigPlayButton } from 'video-react';
+import ReactPlayer from 'react-player'
+import './VideoStyle.css'
+
+
+
+
+const LessonPage = () => {
+    const [videoURL, setVideoURL] = useState('');
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayVideo = () => {
+    setVideoURL('https://youtu.be/6xJptj7AVSA?si=jpXV0dxcOMPwOspg');
+    setIsPlaying(true);
+  };
+
+  const handlePauseVideo = () => {
+    setIsPlaying(false);
+  };
+
+  return (
+    <div className="video-player">
+      <div className="video-thumbnail">
+        <img src="../Paella-7.jpg" alt="Video thumbnail" width={100} height={100} />
+      </div>
+      <div className="video-controls">
+        <button onClick={handlePlayVideo}>Play</button>
+        <button onClick={handlePauseVideo}>Pause</button>
+      </div>
+      {videoURL && <ReactPlayer url={videoURL} playing={isPlaying} />}
+    </div>
+  );
+}
+//   return (
+//     <div>
+//         <Container>
+//         <div className='player-wrapper'>
+//         <ReactPlayer
+//           className='react-player'
+//           url='https://youtu.be/6xJptj7AVSA?si=jpXV0dxcOMPwOspg'
+//           width='100%'
+//           height='100%'
+//         />
+        
+//       </div>
+//         </Container>
+//     </div>
+//   )
+// }
+export default LessonPage;
+
+
+ {isPlaying ? 
+          <Button onClick={handlePauseVideo}>Pause</Button>:
+          <Button onClick={handlePlayVideo}>Play</Button>
+          }
+
+
+           // <div>
+    //      <div className="videoCard">
+    //     <ReactPlayer url={videoURL} playing={isPlaying} controls={true} className='reactPlayer' style={{borderRadius:10}} />
+    //     <div className="videoControls">
+    //       {isPlaying ? 
+    //       <FontAwesomeIcon icon={faCirclePause} onClick={handlePauseVideo} size="2xl" style={{color: "#dadde1",}} />:
+    //       <FontAwesomeIcon onClick={handlePlayVideo} size="2xl" icon={faCirclePlay} style={{color: "#dadde1",}} />
+    //       }
+    //     </div>
+    //   </div>
+    //      <h2>Lesson 1 Title</h2>
+    //     <h2>Lesson Sub Title</h2>
+    // </div>
+
+
+    
+            {/* <div>
+              <div className="videoCard">
+                <ReactPlayer
+                  url={videoURL} // Use the videoURL prop
+                  playing={isPlaying}
+                  controls={true}
+                  className="reactPlayer"
+                  style={{ borderRadius: 10 }}
+                />
+                <div className="videoControls">
+                  {isPlaying ? (
+                    <FontAwesomeIcon
+                      icon={faCirclePause}
+                      onClick={handlePauseVideo}
+                      size="2xl"
+                      style={{ color: "#dadde1" }}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      onClick={handlePlayVideo}
+                      size="2xl"
+                      icon={faCirclePlay}
+                      style={{ color: "#dadde1" }}
+                    />
+                  )}
+                </div>
+              </div>
+              <h2>{selectedLesson ? selectedLesson.title : "Lesson 1 Title"}</h2>
+              <h2>{selectedLesson ? selectedLesson.subTitle : "Lesson Sub Title"}</h2>
+            </div> */}
+
+
+
+    
+            {/* <div>
+              <div>
+                {cards.length ? (
+                  <Card
+                    className="LessonsCards"
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      padding: 10,
+                      borderRadius: 15,
+                      alignContent: "center",
+                      border: "1px solid black",
+                      marginTop: 10,
+                    }}
+                  >
+                    <div>
+                      <img
+                        src="../LearnGuru.jpg"
+                        width={150}
+                        height={80}
+                        style={{ borderRadius: 10, border: "1px solid black", objectFit: "fill" }}
+                        alt="Lesson Thumbnail"
+                      />
+                    </div>
+                    <div>
+                      <p>{cards[0].props.items.title}</p>
+                      <p>{cards[0].props.items.subTitle}</p>
+                      <Button onClick={() => handleWatchLesson(cards[0].props.items)}>Watch</Button>
+                    </div>
+                  </Card>
+                ) : (
+                  <p>No items available</p>
+                )}
+              </div>
+            </div> */}
+
+
+
+            // const LessonPage = ({ videoURL }) => {
+//   const [isPlaying, setIsPlaying] = useState(false);
+
+//   const [lesson, setLesson]=useState('');
+
+//   const handlePlayVideo = () => {
+//     setIsPlaying(true);
+//   };
+
+//   const handlePauseVideo = () => {
+//     setIsPlaying(false);
+//   };
+  
+//   const cards=lessonsData.map(items =>{
+//     return(
+//       <LessonList 
+//         key={items.id}
+//         items={items}
+//       />
+//     )
+//   })
+
+//   return (
+//     <div>
+//      <Container>
+//       <Row className='LessonBody'>
+//         <Col  md={7}  className='LessonSection'>
+//         <div>
+//          <div className="videoCard">
+//         <ReactPlayer url={lesson.videoURL} playing={isPlaying} controls={true} className='reactPlayer' style={{borderRadius:10}} />
+//         <div className="videoControls">
+//           {isPlaying ? 
+//           <FontAwesomeIcon icon={faCirclePause} onClick={handlePauseVideo} size="2xl" style={{color: "#dadde1",}} />:
+//           <FontAwesomeIcon onClick={handlePlayVideo} size="2xl" icon={faCirclePlay} style={{color: "#dadde1",}} />
+//           }
+//         </div>
+//       </div>
+//          <h2>Lesson 1 Title</h2>
+//         <h2>Lesson Sub Title</h2>
+//     </div>
+//       </Col>
+//       <Col md={4}  >
+//       <div>
+//       <div>
+//         {cards.items ? (
+//           <Card  className='LessonsCards' style={{ display: 'flex', flexDirection: 'row', padding: 10, borderRadius: 15, alignContent: 'center', border: '1px solid black',marginTop:10 }}>
+//             <div>
+//               <img src='../LearnGuru.jpg' width={150} height={80} style={{ borderRadius: 10, border: "1px solid black", objectFit: 'fill' }} alt="Lesson Thumbnail" />
+//             </div>
+//             <div>
+//               <p>{cards.items.title}</p>
+//               <p>{cards.items.subTitle}</p>
+//               <Button onClick={() =>  setLesson=cards.items }>Watch</Button>
+//             </div>
+//           </Card>
+//         ) : (
+//           <p>No items available</p>
+//         )}
+//       </div>
+//       </div>
+//       </Col>
+//       </Row>
+//      </Container>
+//     </div>
+//   );
+// }
+// export default LessonPage;
+
+
+// function LessonList(props) {
+
+
+//     return (
+//       <div>
+//         {props.items ? (
+//           <Card  className='LessonsCards' style={{ display: 'flex', flexDirection: 'row', padding: 10, borderRadius: 15, alignContent: 'center', border: '1px solid black',marginTop:10 }}>
+//             <div>
+//               <img src='../LearnGuru.jpg' width={150} height={80} style={{ borderRadius: 10, border: "1px solid black", objectFit: 'fill' }} alt="Lesson Thumbnail" />
+//             </div>
+//             <div>
+//               <p>{props.items.title}</p>
+//               <p>{props.items.subTitle}</p>
+//               <Button onClick={() => <LessonPage videoURL={props.items.videoUrl} />}>Watch</Button>
+//             </div>
+//           </Card>
+//         ) : (
+//           <p>No items available</p>
+//         )}
+//       </div>
+//     );
+//   }
+  
+//   export default LessonList;
+
+// import React,{useEffect, useState} from 'react'
+// import { Button, Container ,Col, Row, Card} from 'reactstrap';
+// import { Player, BigPlayButton } from 'video-react';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import ReactPlayer from 'react-player'
+// import './VideoStyle.css'
+// import LessonList from './Lesson/LessonList';
+// import lessonsData from '../CardsComponets/Lesson/lessonsData';
+// import {faCirclePlay ,faCirclePause } from '@fortawesome/free-solid-svg-icons';
+// import LessonSection from './Lesson/LessonSection';
+
+
+// const LessonPage = ({ videoURL }) => {
+//   const [isPlaying, setIsPlaying] = useState(false);
+//   const [selectedLesson, setSelectedLesson] = useState(null);
+
+
+//   console.log("LessonPage "+lessonsData)
+//   return (
+//     <div>
+//       <Container>
+//         <Row className="LessonBody">
+//           <Col md={7} className="LessonSection">
+//           {selectedLesson ? (
+//            <LessonSection lesson={selectedLesson} onClose={() => setSelectedLesson(null)} />
+//              ) : (
+//                       // <LessonList lessonsData={lessonsData} />
+//                       <h1>No Lesson</h1>
+
+//              )}
+
+//           </Col>
+//           <Col md={4}>
+
+//           <LessonList lessonsData={lessonsData} />
+          
+
+//           </Col>
+//         </Row>
+//       </Container>
+//     </div>
+//   );
+// };
+
+// export default LessonPage;
+
+
+
+// import React, {useState} from 'react'
+// import { Button, Container ,Col, Row, Card} from 'reactstrap';
+// import { Player, BigPlayButton } from 'video-react';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import {faCirclePlay ,faCirclePause } from '@fortawesome/free-solid-svg-icons';
+// import ReactPlayer from 'react-player'
+
+// const LessonSection = ({ lesson, onClose }) => {
+
+//     const [isPlaying, setIsPlaying] = useState(false);
+
+//     const handlePlayVideo = () => {
+//       setIsPlaying(true);
+//     };
+  
+//     const handlePauseVideo = () => {
+//       setIsPlaying(false);
+//     };
+//   return (
+
+//     <div>
+//     <div className='videoCard'>
+//       <ReactPlayer url={lesson.videoUrl} controls={true} className='reactPlayer' style={{ borderRadius: 10 }} />
+//       <div className='videoControls'>
+//       {isPlaying ? 
+//            <FontAwesomeIcon icon={faCirclePause} onClick={handlePauseVideo} size="2xl" style={{color: "#dadde1",}} />:
+//            <FontAwesomeIcon onClick={handlePlayVideo} size="2xl" icon={faCirclePlay} style={{color: "#dadde1",}} />
+//           }
+//       </div>
+//     </div>
+//     <Button onClick={onClose}>Close</Button>
+//     <h2>{lesson.title}</h2>
+//     <h2>{lesson.subTitle}</h2>
+//   </div>
+
+   
+//   )
+// }
+
+// export default LessonSection;
+
+// import React, {useState} from 'react'
+// import { Button, Container ,Col, Row, Card} from 'reactstrap';
+// import { Player, BigPlayButton } from 'video-react';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import {faCirclePlay ,faCirclePause } from '@fortawesome/free-solid-svg-icons';
+// import ReactPlayer from 'react-player'
+// import '../VideoStyle.css'
+// import LessonSection from './LessonSection';
+// import LessonPage from '../LessonPage';
+
+// const LessonsList = ({ lessonsData }) => {
+//   const [selectedLesson, setSelectedLesson] = useState(null);
+//   console.log("LessonList "+selectedLesson)
+
+
+//   return (
+//     <div>
+//       {lessonsData.map((lesson) => (
+//         <Card
+//           key={lesson.id}
+//           className='LessonsCards'
+//           style={{
+//             display: 'flex',
+//             flexDirection: 'row',
+//             padding: 10,
+//             borderRadius: 15,
+//             alignContent: 'center',
+//             border: '1px solid black',
+//             marginTop: 10,
+//           }}
+//         >
+//           <div>
+//             {/* Assuming you have an image for each lesson, replace '../LearnGuru.jpg' with the correct path */}
+//             <img src='../LearnGuru.jpg' width={150} height={80} style={{ borderRadius: 10, border: '1px solid black', objectFit: 'fill' }} alt='Lesson Thumbnail' />
+//           </div>
+//           <div>
+//             <p>{lesson.title}</p>
+//             <p>{lesson.subTitle}</p>
+//             <Button onClick={() => setSelectedLesson(lesson)} >Watch</Button>
+//           </div>
+//         </Card>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default LessonsList;
+
+
+
+
+import React, { useState } from 'react';
+import { Container, Col, Row, Button } from 'reactstrap';
+import LessonList from './Lesson/LessonList';
+// import lessonsData from '../CardsComponets/Lesson/lessonsData';
+import LessonSection from './Lesson/LessonSection';
+import './CardStyle.css';
+
+const LessonPage = ({lesson}) => {
+  const [selectedLessonIndex, setSelectedLessonIndex] = useState(0);
+
+  const handleLessonClick = (lesson) => {
+    const lessonIndex = lesson.findIndex((l) => l.id === lesson.id);
+    setSelectedLessonIndex(lessonIndex);
+  };
+
+  const handlePreviousClick = () => {
+    if (selectedLessonIndex > 0) {
+      setSelectedLessonIndex(selectedLessonIndex - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (selectedLessonIndex < lesson.length - 1) {
+      setSelectedLessonIndex(selectedLessonIndex + 1);
+    }
+  };
+
+  return (
+    <div>
+      <Container>
+        <Row className='LessonBody'>
+          <Col md={7} className='LessonSection'>
+            {lesson.length > 0 ? (
+              <LessonSection
+                lessons={lesson}
+                selectedLessonIndex={selectedLessonIndex}
+                onPreviousClick={handlePreviousClick}
+                onNextClick={handleNextClick}
+              />
+            ) : (
+              <h1>No Lesson</h1>
+            )}
+          </Col>
+          <Col md={4}>
+            <LessonList lesson={lesson} onLessonClick={handleLessonClick} />
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
+};
+
+export default LessonPage;
+
+
+
+User
+//import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlay, faCirclePause,faChevronRight,faChevronCircleLeft, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import ReactPlayer from 'react-player';
+import { Button } from 'reactstrap';
+import '../CardStyle.css';
+
+const LessonSection = ({ lessons, selectedLessonIndex, onPreviousClick, onNextClick }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayVideo = () => {
+    setIsPlaying(true);
+  };
+
+  const handlePauseVideo = () => {
+    setIsPlaying(false);
+  };
+
+  const handleVideoProgress = (state) => {
+    // Uncomment the following line to log the current playback time
+    // console.log('Current time:', state.playedSeconds);
+  };
+
+  const currentLesson = lessons[selectedLessonIndex];
+
+  return (
+    <div>
+      <div className='videoCard container-fluid'>
+        <ReactPlayer
+          url={currentLesson.lsnContentUrl}
+          controls={true}
+          playing={isPlaying}
+          onProgress={handleVideoProgress}
+          className='reactPlayer'
+          borderRadius='20px'
+        />
+        <div className='videoControls'>
+          {isPlaying ? (
+            <FontAwesomeIcon icon={faCirclePause} onClick={handlePauseVideo} size='2xl' style={{ color: '#dadde1' }} />
+          ) : (
+            <FontAwesomeIcon onClick={handlePlayVideo} size='2xl' icon={faCirclePlay} style={{ color: '#dadde1' }} />
+          )}
+        </div>
+      </div>
+      
+      <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',alignItems:'center'}}>
+        <Button className='directionButton' onClick={onPreviousClick} disabled={selectedLessonIndex === 0}>
+         <FontAwesomeIcon icon={faChevronLeft} style={{color: "white",}} /> Previous 
+        </Button>
+        <Button  className='directionButton' onClick={onNextClick} disabled={selectedLessonIndex === lessons.length - 1}>
+          Next   <FontAwesomeIcon icon={faChevronRight} style={{color: "white",}} />
+        </Button>
+      </div>
+      <h2>{currentLesson.title}</h2>
+      <h2>{currentLesson.subTitle}</h2>
+    </div>
+  );
+};
+
+export default LessonSection;
+import React, { useState } from 'react';
+import { Container, Col, Row } from 'reactstrap';
+import LessonList from './Lesson/LessonList';
+import LessonSection from './Lesson/LessonSection';
+
+import './CardStyle.css';
+
+const LessonPage = ({ lesson }) => {
+  const [selectedLessonIndex, setSelectedLessonIndex] = useState(0);
+
+  const handleLessonClick = (lesson) => {
+    const lessonIndex = lesson.findIndex((l) => l.id === lesson.id);
+    setSelectedLessonIndex(lessonIndex);
+  };
+
+  const handlePreviousClick = () => {
+    if (selectedLessonIndex > 0) {
+      setSelectedLessonIndex(selectedLessonIndex - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (selectedLessonIndex < lesson.length - 1) {
+      setSelectedLessonIndex(selectedLessonIndex + 1);
+    }
+  };
+
+  return (
+    <div>
+      <Container>
+        <Row className='LessonBody'>
+          <Col md={7} className='LessonSection'>
+            {lesson.length > 0 ? (
+              <LessonSection
+                lessons={lesson}
+                selectedLessonIndex={selectedLessonIndex}
+                onPreviousClick={handlePreviousClick}
+                onNextClick={handleNextClick}
+              />
+            ) : (
+              <h1>No Lesson</h1>
+            )}
+          </Col>
+          <Col md={4}>
+            <LessonList lessons={lesson} onLessonClick={handleLessonClick} />
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
+};
+
+export default LessonPage;
+
+import React, { useState } from 'react';
+import { Button, Card } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFile } from '@fortawesome/free-solid-svg-icons';
+import LessonSection from './LessonSection';
+import '../CardStyle.css'
+import '@fontsource/courier-prime/400.css';
+
+
+const LessonsList = ({ lessonsData, onLessonClick }) => {
+  const [selectedLesson, setSelectedLesson] = useState(null);
+
+  return (
+    <div className='lessonListCard'>
+      {lessonsData.map((lesson) => (
+        <Card
+          key={lesson.id}
+          className='LessonsCards'
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            padding: 10,
+            borderRadius: 15,
+            alignItems: 'center',
+            // border: '1px solid black',
+            marginTop: 10,
+          }}
+        >
+          {/* <div>
+            <img src='../LearnGuru.jpg' width={150} height={80} style={{ borderRadius: 10, border: '1px solid black', objectFit: 'fill' }} alt='Lesson Thumbnail' />
+          </div> */}
+          <div style={{marginLeft:'10px'}}>
+            <p><span className='lessonHeading'>{lesson.lsnTitle}</span> <br/>
+            <span className='lessonSubHeading'>{lesson.lsnSubTitle}</span>
+            </p>
+          </div>
+          <div style={{marginRight:'30px',marginLeft:'auto'}}>
+                <Button className='fileButton'>
+                <FontAwesomeIcon icon={faFile} 
+                 beat size="2xl" 
+                 style={{color: "#172844",}}
+                 onClick={() => {
+                  console.log("Selected Lesson:", lesson);
+                  onLessonClick(lesson);}}
+                 />
+                </Button>
+          </div>
+        </Card>
+      ))}
+    </div>
+  );
+};
+
+export default LessonsList;
+
+
+//import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlay, faCirclePause,faChevronRight,faChevronCircleLeft, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import ReactPlayer from 'react-player';
+import { Button } from 'reactstrap';
+import '../CardStyle.css';
+
+const LessonSection = ({ lessons, selectedLessonIndex, onPreviousClick, onNextClick }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayVideo = () => {
+    setIsPlaying(true);
+  };
+
+  const handlePauseVideo = () => {
+    setIsPlaying(false);
+  };
+
+  const handleVideoProgress = (state) => {
+    // Uncomment the following line to log the current playback time
+    // console.log('Current time:', state.playedSeconds);
+  };
+
+  const currentLesson = lessons[selectedLessonIndex];
+
+  return (
+    <div>
+      <div className='videoCard container-fluid'>
+        <ReactPlayer
+          url={currentLesson.lsnContentUrl}
+          controls={true}
+          playing={isPlaying}
+          onProgress={handleVideoProgress}
+          className='reactPlayer'
+          borderRadius='20px'
+        />
+        <div className='videoControls'>
+          {isPlaying ? (
+            <FontAwesomeIcon icon={faCirclePause} onClick={handlePauseVideo} size='2xl' style={{ color: '#dadde1' }} />
+          ) : (
+            <FontAwesomeIcon onClick={handlePlayVideo} size='2xl' icon={faCirclePlay} style={{ color: '#dadde1' }} />
+          )}
+        </div>
+      </div>
+      
+      <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',alignItems:'center'}}>
+        <Button className='directionButton' onClick={onPreviousClick} disabled={selectedLessonIndex === 0}>
+         <FontAwesomeIcon icon={faChevronLeft} style={{color: "white",}} /> Previous 
+        </Button>
+        <Button  className='directionButton' onClick={onNextClick} disabled={selectedLessonIndex === lessons.length - 1}>
+          Next   <FontAwesomeIcon icon={faChevronRight} style={{color: "white",}} />
+        </Button>
+      </div>
+      <h2>{currentLesson.title}</h2>
+      <h2>{currentLesson.subTitle}</h2>
+    </div>
+  );
+};
+
+export default LessonSection;

@@ -1,0 +1,289 @@
+/* TrainerHome */
+.trainerHome{
+        border-radius: 10px;
+        box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+/* ViewCourse */
+.viewCourseBody{
+        border-radius: 10px;
+        box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+        padding: 40px !important;
+        justify-content: center;
+        width: auto;        
+}
+.allCourseCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Update this line */
+  grid-template-rows: auto 1fr auto;
+  gap: 15px;
+}
+
+@media (max-width: 900px) {
+  .allCourseCards {
+    grid-template-columns: 1fr 1fr; /* Change the number of columns for smaller screens */
+  }
+}
+
+@media (max-width: 700px) {
+  .allCourseCards {
+    grid-template-columns: 1fr; /* Further change the number of columns for even smaller screens */
+  }
+}
+
+/* TrainerCourseCard */
+
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+
+.courseCard{
+          font-family: 'Teko', sans-serif;
+          height: auto;
+          border-radius: 10px !important;
+          padding: 15px;
+          box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2); 
+          background-color: #FFDEE9;
+          background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+          border-color: #002244 !important;
+          margin-bottom: 10px;
+          justify-content: center;  
+          color: #002244;      
+      }
+      
+      .courseImage {
+          position: relative;
+          border-radius: 15px;
+          overflow: hidden;
+          border-color: #002244;
+        }
+        
+        .courseImage img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: opacity 0.3s ease; 
+          border: 1px solid #002244;
+        }
+        
+        .courseImage:hover img {
+          filter: blur(1px); /* Set the desired transparency for the image on hover */
+          border: 0.5px solid black; 
+        }
+        
+        .courseImage:hover .likeButton {
+          display:block !important;
+          background-color: transparent;
+          backdrop-filter: blur(1px);
+         
+        }
+
+        .courseTitle{
+          font-size: 40px;
+        }
+        .courseSubTitle{
+          font-size: 25px;
+        }
+        .noOfLessons{
+          font-size: 20px;
+        }
+        .courseSkills{
+          font-size: 20px;
+        }
+        .courseSkillText{
+          font-weight: none;
+        }
+        
+        .likeButton {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: none;
+         
+        }
+        .enrollLikes{
+          margin-top: 5px;
+          font-size: 20px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 10px;
+        }
+        
+      .courseCardBody{
+        margin-left: -10px;
+        padding: 10px;
+      }
+      .cardFooter{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-right: 10px;
+        margin-bottom: 5px;
+        margin-top: 80px;
+      }
+      
+      .buttons{
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr auto; /* Update this line */
+        grid-template-rows: auto 1fr auto;
+        gap:5px;
+      }
+           
+      @media (max-width: 1000px) {
+        .buttons {
+          grid-template-columns: 1fr; 
+          grid-template-rows: auto 1fr auto;
+        }
+      }
+      
+      @media (max-width: 700px) {
+        .buttons {
+          grid-template-columns: 1fr; /* Further change the number of columns for even smaller screens */
+        }
+      }
+      .courseButton {
+        width: 130px !important;
+        background-image: linear-gradient(to right, #2c3e50 0%, #3498db  51%, #2c3e50  100%);
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;            
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .courseButton:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.trainerBody{
+        border-radius: 10px;
+        margin-top: 120px;
+        box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+/* add Course page */
+
+.addCoursePage{
+        border-radius: 10px;
+        box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+        padding: 20px !important;
+}
+.pageHeading,.modelHeading{
+        font-family: 'Gabriela', sans-serif;
+}
+Form{
+        padding: 10px;
+}
+Input{
+        width:'200px' !important;
+}
+Label{
+      font-family: 'Barlow', sans-serif;
+      font-size: 25px !important;      
+}
+
+.addCourseForm{
+        width: 750px !important;
+}
+.btnSubmit {
+        background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;            
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+      }
+    
+      .btnSubmit:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+
+  .modelTextdiv{
+    font-family: 'Barlow', sans-serif;
+    margin-left: 10px;
+    font-size: 20px;
+  }
+  .modelText1{
+    font-weight: bold;
+  }
+  .modelText2{
+    font-size: 20px;
+  } 
+  .modalFooterText
+  {
+    font-family: 'Barlow', sans-serif;
+    margin-left: 4px !important;
+    font-size: 20px;
+  
+  }
+
+.modalButtons{
+  display: flex;
+  flex-direction: row;
+}
+
+
+.modalButton {
+  background-image: linear-gradient(to right, #556270 0%, #FF6B6B  51%, #556270  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  width: 200px;
+  border-radius: 10px;
+  display: block;
+}
+
+.modalButton:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+  /* lodder */
+  .loader{
+    color: red;
+    top:50%;
+    left: 50%;
+}
