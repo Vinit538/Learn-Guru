@@ -247,10 +247,12 @@ const navigate = useNavigate();
       <div className='formBody'>
       <div
             className={`input-group ${
-              isFocused || isInputValid ? "active" : ""
+              isFocused || isInputValid ? "active" : "in-active"
               }`}
         >
           <input
+            invalid
+            valid
                     className="input"
                     autoComplete="off"
                     type="text"

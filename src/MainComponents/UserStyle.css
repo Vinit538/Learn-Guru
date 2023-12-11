@@ -199,7 +199,6 @@ li {
   position: relative;
   --primary: #004170 !important;
 }
-
 .input {
   margin-left: -10px !important;  
   all: unset; 
@@ -230,9 +229,26 @@ li {
   background-color: #afc4fc !important;
   padding-inline: 0.3rem;
   color: var(--primary);
-  
 }
 
+/* 
+.input:is(:focus, :invalid)~label{
+    transform: translateY(-120%) scale(0.7);
+    background-color: #afc4fc !important;
+    padding-inline: 0.3rem;
+    color: var(--primary);
+} */
+
+/* .input:is(:invalid) ~label{
+transform: translateY(-120%) scale(0.7);
+  background-color: #afc4fc !important;
+  padding-inline: 0.3rem;
+  color: var(--primary);
+  border-color: red; 
+} */
+/* .input:invalid {
+    border-color: red; 
+  } */
 button{
   cursor: pointer;
   border: 0;
@@ -494,4 +510,73 @@ a.btn-goback:hover {
     cursor: pointer;
     fill: #1059FF;
     transform: rotate(180deg)
+}
+
+
+
+@media (max-width: 320px) { 
+    .frame{
+        height: auto;
+        width: 300px;
+        margin-left: -20px;
+    }
+
+    .form-signin {
+    width: 280px;
+    height: 400px;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-top: 10px; 
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+
+.form-signup {
+    width: 280;
+    height: 570px;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 37px;
+    padding-top: 10px;
+    /* transition: opacity 0.5s ease, transform 0.5s ease;  */
+}
+
+.input-group {
+    font-size: 1.25rem;
+    position: relative;
+    --primary: #004170 !important;
+  }
+  
+  .input {
+    margin-left: -10px !important;  
+    all: unset; 
+    width: 230px !important;
+    color: #002244;
+    margin-bottom: 25px !important;
+    padding: 15px !important;
+    border: 2px solid #d4d4d4;
+    border-radius: 10px !important;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  
+.form-styling {
+    width: 100%;
+    height: 30px;
+    padding-left: 0px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, .2)
+}
+.nav {
+    width: 250px;
+    height: 100px;
+    padding-top: 40px;
+    opacity: 1;
+    transition: all .5s ease
+}
+.logInbutton{
+    margin-left: -5px;
+}
 }

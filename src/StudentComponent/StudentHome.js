@@ -5,6 +5,7 @@ import { useAuth } from '../MainComponents/AuthContext';
 
 const StudentHome = () => {
     const {user}=useAuth();
+
     return (
       <div>
          <div className="homeBody">

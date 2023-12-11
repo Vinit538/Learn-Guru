@@ -37,7 +37,6 @@ const StudentLessonList = ({lessonsData,onLessonClick}) => {
                  beat size="2xl" 
                  style={{color: "#172844",}}
                  onClick={() => {
-                  console.log("Selected Lesson:", lesson);
                   onLessonClick(lesson);}}
                  />
                 </Button>

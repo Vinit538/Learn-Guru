@@ -544,3 +544,44 @@ Label{
     top:50%;
     left: 50%;
 }
+
+
+  {/* <UncontrolledDropdown
+                  inNavbar
+                  direction="down"
+                  className="me-2"
+                >
+                  <DropdownToggle nav>
+                    {user.userRole === "Trainer" && (
+                          <FontAwesomeIcon
+                          icon={faUserTie}
+                          size="2xl"
+                          //  style={{ color: "#213454" }}
+                          className="userIcon"
+                          />
+                    )}
+                   
+                    {user.userRole === "Student" &&(
+                      <FontAwesomeIcon 
+                      icon={faUserGraduate} 
+                      size="2xl" 
+                      // style={{ color: "#213454" }}
+                      className="userIcon"
+                    
+                      />
+                    )}
+                    
+                    <span className="userName">{user.userName}</span>
+                  </DropdownToggle>
+                  <DropdownMenu className="dropMenu">
+                    <DropdownItem>
+                      <p>{user.userId}</p>
+                    </DropdownItem>
+                    <DropdownItem onClick={profileClick}>Profile</DropdownItem>
+                    <DropdownItem>Account</DropdownItem>
+                    <DropdownItem>Dashboard</DropdownItem>
+                    <DropdownItem onClick={logout}>
+                      <Link to="/">Logout</Link>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown> */}

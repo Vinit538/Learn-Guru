@@ -5,10 +5,11 @@ import "@fontsource/katibeh";
 import "@fontsource/bubblegum-sans";
 import "@fontsource/eb-garamond";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserTie,faUserGraduate} from "@fortawesome/free-solid-svg-icons";
-import "./LGStyles.css"; // Import custom styles
+import { faUserTie, faUserGraduate } from "@fortawesome/free-solid-svg-icons";
+import "./LGStyles.css";
 
 import {
+  Button,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -18,10 +19,17 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
 } from "reactstrap";
 import { useAuth } from "./AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import UserModel from "./UserModel";
+import { TrainerModal } from "./TrainerModal";
+import { StudentModal } from "./StudentModal";
 
 const LearnGuruNavbar = ({ isSignup, toggleSignup }) => {
   const navigate = useNavigate();
@@ -38,11 +46,37 @@ const LearnGuruNavbar = ({ isSignup, toggleSignup }) => {
     toggleSignup(true);
   };
 
-
-
- const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const [isDMOpen, setIsDMOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDMOpen(!isDMOpen);
+  };
+
+  const [modalContent, setModalContent] = useState(null);
+
+  const setProfileContent = () => {
+    if (user.userRole === "Trainer") {
+      setModalContent(<TrainerModal />);
+    } else {
+      setModalContent(<StudentModal />);
+    }
+  };
+
+  const setAccountContent = () => {
+    setModalContent(<UserModel 
+    />);
+  };
+
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal(!modal);
+
+  const profileClick = () => {
+    setModal(true);
+  };
 
   const handleScroll = () => {
     const navbar = document.getElementById("navbar");
@@ -51,17 +85,18 @@ const LearnGuruNavbar = ({ isSignup, toggleSignup }) => {
       if (currentScrollPos === 0) {
         // Scroll to top, open the navbar
         navbar.style.top = "0";
-       // setIsOpen(true);
+        // setIsOpen(true);
       } else if (isOpen) {
         // Scrolled down, close the navbar if it's open
-        
-        setIsOpen(!isOpen);
-      }
-      else if (currentScrollPos > 0 && currentScrollPos < window.innerHeight) {
-      // Scrolling down or at the bottom of the page, hide the navbar
-      navbar.style.top = "-100px";
-      }
 
+        setIsOpen(!isOpen);
+      } else if (
+        currentScrollPos > 0 &&
+        currentScrollPos < window.innerHeight
+      ) {
+        // Scrolling down or at the bottom of the page, hide the navbar
+        navbar.style.top = "-100px";
+      }
     }
   };
 
@@ -90,8 +125,32 @@ const LearnGuruNavbar = ({ isSignup, toggleSignup }) => {
     };
   }, []);
 
+
+  const handleLogoutClick = () => {
+    logout();
+    // Redirect to the homepage after logout
+    navigate('/');
+  };
+
   return (
     <div>
+      <Modal
+        isOpen={modal}
+        toggle={toggleModal}
+        centered="true"
+        className="model"
+        size="lg"
+      >
+        <ModalHeader toggle={toggleModal} className="modelHeading">
+          User Details
+        </ModalHeader>
+        <ModalBody>{modalContent}</ModalBody>
+        <ModalFooter>
+          <Button color="danger" onClick={toggleModal}>
+            Close
+          </Button>
+        </ModalFooter>
+      </Modal>
       <Navbar fixed="top" expand="md" className="navbarStyle" id="navbar">
         <NavbarBrand href="/" className="navBrand">
           <span>
@@ -113,74 +172,179 @@ const LearnGuruNavbar = ({ isSignup, toggleSignup }) => {
           >
             {user ? (
               <>
-                <NavItem className="navItems">
-                  <Link
-                    style={{ textDecoration: "none", color: "white" }}
-                    to="/"
-                  >
-                    <span className="navSubHeading">Home</span>
-                  </Link>
-                </NavItem>
-
                 {user.userRole === "Trainer" && (
-                  <NavItem className="navItems">
-                    <Link
-                      style={{ textDecoration: "none", color: "white" }}
-                      to="/trainerHome"
+                  <>
+                    <NavItem className="navItems">
+                      <Link
+                        style={{ textDecoration: "none", color: "white" }}
+                        to="/trainerHome"
+                      >
+                        <span className="navSubHeading">Home</span>
+                      </Link>
+                    </NavItem>
+                    <NavItem className="navItems">
+                      <Link
+                        style={{ textDecoration: "none", color: "white" }}
+                        to="/courses"
+                      >
+                        <span className="navSubHeading">Courses</span>
+                      </Link>
+                    </NavItem>
+
+                    <UncontrolledDropdown
+                      inNavbar
+                      direction="down"
+                      className="me-2"
+                      nav
                     >
-                      <span className="navSubHeading">Trainer</span>
-                    </Link>
-                  </NavItem>
+                      <DropdownToggle nav className="dropDownMenu">
+                        <NavItem className="navItems">
+                          <span className="navSubHeading">Trainer</span>
+                        </NavItem>
+                      </DropdownToggle>
+                      <DropdownMenu className="dropMenu">
+                        <DropdownItem
+                          className="dropMenuButton"
+                          onClick={() => navigate("/viewCourse")}
+                        >
+                          Your Course
+                        </DropdownItem>
+                        <DropdownItem
+                          className="dropMenuButton"
+                          onClick={() => navigate("/addCourse")}
+                        >
+                          Add Course
+                        </DropdownItem>
+                        <DropdownItem
+                          className="dropMenuButton"
+                          onClick={() => navigate("/updateCoursePage")}
+                        >
+                          Update Course
+                        </DropdownItem>
+                        <DropdownItem
+                          className="dropMenuButton"
+                          onClick={() => navigate("/deleteCourse")}
+                        >
+                          Delete Course
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </UncontrolledDropdown>
+                  </>
                 )}
 
                 {user.userRole === "Student" && (
-                  <NavItem className="navItems">
-                    <Link
-                      style={{ textDecoration: "none", color: "white" }}
-                      to="/studentHome"
-                    >
-                      <span className="navSubHeading">Student</span>
-                    </Link>
-                  </NavItem>
-                )}
+                  <>
+                    <NavItem className="navItems">
+                      <Link
+                        style={{ textDecoration: "none", color: "white" }}
+                        to="/studentHome"
+                      >
+                        <span className="navSubHeading">Home</span>
+                      </Link>
+                    </NavItem>
+                    <NavItem className="navItems">
+                      <Link
+                        style={{ textDecoration: "none", color: "white" }}
+                        to="/allCourses"
+                      >
+                        <span className="navSubHeading">Courses</span>
+                      </Link>
+                    </NavItem>
 
+                    <UncontrolledDropdown
+                      inNavbar
+                      direction="down"
+                      className="me-2"
+                      nav
+                    >
+                      <DropdownToggle nav className="dropDownMenu">
+                        <NavItem className="navItems">
+                          <span className="navSubHeading">Student</span>
+                        </NavItem>
+                      </DropdownToggle>
+                      <DropdownMenu className="dropMenu">
+                        <DropdownItem
+                          className="dropMenuButton"
+                          onClick={() => navigate("/enrolledCourse")}
+                        >
+                          Enrolled
+                        </DropdownItem>
+                        <DropdownItem
+                          className="dropMenuButton"
+                          onClick={() => navigate("/allCourses")}
+                        >
+                          Courses
+                        </DropdownItem>
+
+                        {/* <DropdownItem className='dropMenuButton'>Update Course</DropdownItem>
+                    <DropdownItem className='dropMenuButton'>Delete Course</DropdownItem> */}
+                      </DropdownMenu>
+                    </UncontrolledDropdown>
+                  </>
+                )}
                 <UncontrolledDropdown
                   inNavbar
                   direction="down"
                   className="me-2"
+                  nav
+                  onMouseOver={toggleDropdown}
+                  onMouseOut={toggleDropdown}
                 >
                   <DropdownToggle nav>
                     {user.userRole === "Trainer" && (
-                          <FontAwesomeIcon
-                          icon={faUserTie}
-                          size="2xl"
-                          //  style={{ color: "#213454" }}
-                          className="userIcon"
-                          />
-                    )}
-                   
-                    {user.userRole === "Student" &&(
-                      <FontAwesomeIcon 
-                      icon={faUserGraduate} 
-                      size="2xl" 
-                      // style={{ color: "#213454" }}
-                      className="userIcon"
-                    
+                      <FontAwesomeIcon
+                        icon={faUserTie}
+                        size="2xl"
+                        className="userIcon"
                       />
                     )}
-                    
+                    {user.userRole === "Student" && (
+                      <FontAwesomeIcon
+                        icon={faUserGraduate}
+                        size="2xl"
+                        className="userIcon"
+                      />
+                    )}
                     <span className="userName">{user.userName}</span>
                   </DropdownToggle>
-                  <DropdownMenu className="dropMenu">
-                    <DropdownItem>
-                      <p>{user.userId}</p>
+                  <DropdownMenu
+                    className="dropMenu"
+                    right
+                    isOpen={isDMOpen}
+                    toggle={toggleDropdown}
+                  >
+                    <DropdownItem
+                      onClick={() => {
+                        setProfileContent();
+                        toggleModal();
+                      }}
+                      className="dropMenuButton"
+                    >
+                      Profile
                     </DropdownItem>
-                    <DropdownItem>Profile</DropdownItem>
-                    <DropdownItem>Account</DropdownItem>
-                    <DropdownItem>Dashboard</DropdownItem>
-                    <DropdownItem onClick={logout}>
-                      <Link to="/">Logout</Link>
+                    <DropdownItem
+                      onClick={() => {
+                        setAccountContent();
+                        toggleModal();
+                      }}
+                      className="dropMenuButton"
+                    >
+                      Account
                     </DropdownItem>
+                    <DropdownItem className="dropMenuButton">
+                      Dashboard
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={handleLogoutClick}
+                      className="dropMenuButton"
+                    >
+                      Logout
+                    </DropdownItem>
+                    {/* <DropdownItem onClick={logout} className="dropMenuButton">
+                      <Link style={{ textDecoration: "none" }} to="/">
+                        Logout
+                      </Link>
+                    </DropdownItem> */}
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </>
@@ -206,8 +370,9 @@ const LearnGuruNavbar = ({ isSignup, toggleSignup }) => {
                     style={{ textDecoration: "none" }}
                     to="/log_in"
                     onClick={handleSignInClick}
+                    className="menuLink"
                   >
-                    <span className="navSubHeading">Log In</span>
+                    Log In
                   </Link>
                 </NavItem>
               </>
@@ -215,7 +380,6 @@ const LearnGuruNavbar = ({ isSignup, toggleSignup }) => {
           </Nav>
         </Collapse>
       </Navbar>
-      
     </div>
   );
 };

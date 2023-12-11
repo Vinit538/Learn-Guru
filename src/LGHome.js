@@ -9,6 +9,9 @@ import { useState, CSSProperties } from "react";
 const LGHome = () => {
   const { user } = useAuth();
 
+
+
+
   return (
     <div>
       <div className="homeBody">

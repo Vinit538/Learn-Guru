@@ -22,13 +22,13 @@
     border-radius: 10px !important;
     display: flex;
     justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
-  
-
-  
 
   .navbarStyle:hover {
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center; 
     color: #fff;
     text-decoration: none;
   }
@@ -43,13 +43,14 @@
     background:   linear-gradient(to right, #6A82FB, #FC5C7D);
     background-clip: text;
     color: transparent;
-    /* color:  #9FE2BF !important; */
     font-size: 40px;
     font-family:Dangrek, sans-serif;
   }
+
   .navSubHeading{
     color: #fbd786;
   }
+  
 
   .my-navbar-toggler
  {
@@ -76,36 +77,130 @@
     height: auto;
     align-items: center;
     border-radius: 10px;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     margin-right: 10px !important;
-    gap:10px;
+}
+.dropdown{
+  padding: 0px !important;
 }
 .navbarToggle{
   width: auto;
 }
-.dropMenu{
-  width:auto;
+/* .dropDownMenu {
+  width: auto;
   height: auto;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: #FF69B4 !important;
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.0);
+  border: 2px solid #213454;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.0);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(5.2px);
-  border: 1px solid rgba(255,255,255,255.56);  
+} */
+
+.dropMenu {
+  width: auto !important;
+  height: auto;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+  margin-right: 10px !important;
+  gap: 10px;
+  background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+  color: white !important; 
 }
+/* background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);  */
+
+.dropMenuButton {
+  width: 150px !important;
+  background-color: transparent !important ;
+  backdrop-filter: blur(0.2px) !important;
+  border: 1px solid #213454;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fbd786 !important;            
+  display: block;
+  font-family:Dangrek, sans-serif;
+  background-repeat: 1;
+
+}
+
+.dropMenuButton:hover {
+  color:#eee !important;
+  box-shadow: 0 0 40px #eee !important;
+  padding: none !important;
+
+  text-decoration: none;
+}
+.dashbordDropDown{
+  width:100px;
+}
+/* .dropMenuButton {
+  width: 150px !important;
+  background-image: linear-gradient(to right, #FF69B4 0%, #2980b9  51%, #7f7fd5  100%) !important;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #fbd786 !important;            
+  box-shadow: 0 0 20px #eee !important;
+  border-radius: 10px !important;
+  display: block;
+  font-family:Dangrek, sans-serif;
+
+}
+
+.dropMenuButton:hover {
+  background-position: right center; 
+  color: #fbd786;
+  text-decoration: none;
+}  */
+
+.menuLink{
+  color: #fbd786;
+  background-color: transparent !important;
+}
+/* .menuLink:hover{
+  background: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%); 
+  background-clip: text;
+  color: transparent;
+} */
 .navItems{
   width: auto;
+  color: #fbd786 !important;
   padding: 10px;
-  /* background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
-  background-clip: text;
-  color:transparent; */
   text-decoration: none !important;
   font-family: Nova Square, sans-serif;
   border-radius: 10px;
   position: relative;
   
 }
+
+
+
+.navItems::after{
+  content: '';
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0%;
+  background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%); 
+  transition: all ease 0.5s;
+}
+
+.navItems:hover::after{ 
+  width: 100%;
+  box-shadow: 0 0 20px aqua;
+  
+}
+
+
 /* .navItems::before{
   content: '';
   position:absolute;
@@ -127,35 +222,7 @@
   
 } */
 
-.navItems::after{
-  content: '';
-  position:absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 0%;
-  background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%); 
-  transition: all ease 0.5s;
-}
 
-.navItems:hover::after{
-  width: 100%;
-  box-shadow: 0 0 20px aqua;
- 
-}
-/* background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%); */
-
-@media screen and (max-width: 780px) {
- .NavbarHeading{
-  font-size: 30px;
- }
- .LGlogo{
-    width: 60px;
-    height: 55px;
-    margin-left: 5px;
- }
-
-}
 
 .menuButton{
   width: auto;
@@ -164,10 +231,12 @@
   border: none !important;
   box-shadow: none !important;
 }
+
 .menuBrand{
   width: auto;
   margin-top: 20px;
 }
+
 .userIcon{
   color: #213454;
 }
@@ -183,3 +252,54 @@
   color: aqua;
   text-shadow: 0 0 40px aqua;
 }
+
+ @media screen and (max-width: 768px) {
+  .NavbarHeading{
+   font-size: 25px;
+  }
+  .LGlogo{
+     width: 50px;
+     height: 60px;
+     margin-left: -20px;
+  }
+ .navbarStyle{
+  width: 750px;
+ }
+ }
+
+ @media screen and (max-width: 480px) {
+  .NavbarHeading{
+   font-size: 25px;
+  }
+  .LGlogo{
+     width: 50px;
+     height: 60px;
+     margin-left: -20px;
+  }
+ .navbarStyle{
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+ }
+
+@media screen and (max-width: 320px) {
+  .NavbarHeading{
+   font-size: 22px;
+  }
+  .LGlogo{
+     width: 50px;
+     height: 60px;
+     margin-left: -20px;
+  }
+ .navbarStyle{
+  width: 290px;
+  padding: 5px;
+  height: 80px;
+}
+}
+
+
+         
+    
+

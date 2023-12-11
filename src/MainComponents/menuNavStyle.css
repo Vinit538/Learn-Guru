@@ -18,3 +18,20 @@
 .menuNav:hover{
     box-shadow: 0px 0px 20px white;
 }
+@media (max-width: 480px) { 
+    .menuNavbar{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+
+
+
+@media (max-width: 320px) { 
+    .menuNavbar{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+ 
+ 

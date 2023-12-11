@@ -107,7 +107,35 @@ body{
 
 
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
+    .titleContainer{
+        width: 650px;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        padding: 20px;
+    }
+    .titleText{
+        font-size: 25px;
+        color: #093637;  
+    }
+    
+    .mainHeading {
+        font-size: 100px;
+    }
+    
+    .titleIntro{
+        padding: 20px;
+        width: 350px;
+    }
+    .lgIntro{
+        font-size: 25px;
+    }
+  
+  }
+
+
+  @media (max-width: 900px) { 
     .titleContainer{
         width: 500px;
         display: flex;
@@ -121,30 +149,28 @@ body{
     }
     
     .mainHeading {
-        font-size: 80px;
+        font-size: 90px;
     }
     
     .titleIntro{
         padding: 20px;
-        width: 300px;
+        width: 350px;
     }
     .lgIntro{
-        font-size: 20px;
+        font-size: 24px;
     }
   
   }
-
-
-  @media (max-width: 900px) { 
+  @media (max-width: 768px) { 
     .titleContainer{
         width: 450px;
         display: flex;
         flex-direction: column;
         background: transparent;
-        padding: 20px;
+        padding: 10px;
     }
     .titleText{
-        font-size: 15px;
+        font-size: 20px;
         color: #093637;  
     }
     
@@ -158,45 +184,20 @@ body{
     }
     .lgIntro{
         font-size: 20px;
-    }
-  
-  }
-  @media (max-width: 700px) { 
-    .titleContainer{
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        background: transparent;
-        padding: 20px;
-    }
-    .titleText{
-        font-size: 15px;
-        color: #093637;  
-    }
-    
-    .mainHeading {
-        font-size: 50px;
-    }
-    
-    .titleIntro{
-        padding: 20px;
-        width: 250px;
-    }
-    .lgIntro{
-        font-size: 15px;
+        font-weight: 0;
     }
   }
-  @media (max-width: 500px) { 
+  @media (max-width: 480px) { 
     .homeBody{
         display: flex;
         flex-direction: column;
     }
     .titleContainer{
-        width: 300px;
+        width: 450px;
         display: flex;
         flex-direction: column;
         background: transparent;
-        padding: 20px;
+        padding: 10px;
     }
     .titleText{
         font-size: 15px;
@@ -208,10 +209,61 @@ body{
     }
     
     .titleIntro{
-        padding: 20px;
-        width: 300px;
+        padding: 10px;
+        width: 450px;
     }
     .lgIntro{
         font-size: 20px;
+    }
+    .lgMenu{
+        margin-left: -20px;
+        font-size: 15px;
+    }
+    .MenuBarHeading
+    {
+    color: #162237;
+    font-size: 15px;
+    font-weight: none;
+    }
+  }
+
+  @media (max-width: 320px) { 
+    .homeBody{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .titleContainer{
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        padding: 10px;
+    }
+    .titleText{
+        font-size: 15px;
+        color: #093637;  
+    }
+    
+    .mainHeading {
+        font-size: 40px;
+    }
+    
+    .titleIntro{
+        padding: 10px;
+        width: 280px;
+    }
+    .lgIntro{
+        font-size: 15px;
+    }
+    .lgMenu{
+        margin-left: -20px;
+        font-size: 15px;
+    }
+    .MenuBarHeading
+    {
+    color: #162237;
+    font-size: 15px;
+    font-weight: none;
     }
   }

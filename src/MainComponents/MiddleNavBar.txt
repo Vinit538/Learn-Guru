@@ -1,0 +1,61 @@
+  const [isOpen, setIsOpen] = useState(false);
+ const toggle = () => setIsOpen(!isOpen);
+
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggletooltip = () => setTooltipOpen(!tooltipOpen);
+
+
+const handleScroll = () => {
+    const navMenuButton = document.getElementById("navMenuButton");
+    if (navMenuButton) {
+      const currentScrollPos = window.scrollY;
+  
+      if (isOpen) {
+        setIsOpen(false);
+      }
+  
+      if (currentScrollPos === 0 ||currentScrollPos < 0) {
+        // Scroll to top, show the navMenuButton
+        navMenuButton.style.display="block";
+      } else if (currentScrollPos > 0) {
+        // Scrolling down, hide the navMenuButton
+        navMenuButton.style.display="none";
+      }
+    }
+  };
+  
+
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      // Cleanup the event listener when the component is unmounted
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isOpen]);
+
+
+   <div className="lgMenu">
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <Button
+                    className="menuButton"
+                    onClick={toggle}
+                    
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    <div id="navMenuButton">
+                    <span className="MenuBarHeading">Menu</span>{" "}
+                    <FontAwesomeIcon
+                      icon={faAngleRight}
+                      beat
+                      size="2xl"
+                      id="TooltipExample"
+                      style={{ color: "#162237" }}
+                    />
+                    </div>
+                  </Button>
+                  <Collapse isOpen={isOpen}>
+                    <MenuNavbar />
+                  </Collapse>
+                </div>
+              </div>

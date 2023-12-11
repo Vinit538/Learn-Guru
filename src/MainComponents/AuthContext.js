@@ -9,7 +9,8 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  
+  //const navigate = useNavigate();
+
 
   const [user, setUser] = useState(null);
 

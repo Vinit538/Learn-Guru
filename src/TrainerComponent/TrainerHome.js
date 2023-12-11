@@ -2,8 +2,11 @@ import React from 'react';
 import { Container, Card, Button } from 'reactstrap';
 import '../App.css'
 import { useAuth } from '../MainComponents/AuthContext';
+
+
 export default function  TrainerHome() {
   const {user}=useAuth();
+
   return (
     <div>
       <div className="homeBody">

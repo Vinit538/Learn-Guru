@@ -29,18 +29,14 @@ import StudentHome from "./StudentComponent/StudentHome";
 import CoursePage from "./StudentComponent/CoursePage";
 import EnrollCousePage from "./StudentComponent/EnrollCousePage";
 import EnrolledCourse from "./StudentComponent/EnrolledCourse";
-import { isVisible } from "@testing-library/user-event/dist/utils";
 import GetEnrolledLesson from "./StudentComponent/GetEnrolledLesson";
-
+import UserLogIn from "./MainComponents/UserLogIn";
 function App() {
+
+
   const { user } = useAuth();
   const [isSignup, setIsSignup] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen);
-
-  const [tooltipOpen, setTooltipOpen] = useState(false);
-  const toggletooltip = () => setTooltipOpen(!tooltipOpen);
 
   const setSignup = () => {
     setIsSignup(!isSignup);
@@ -50,73 +46,12 @@ function App() {
     setIsSignup(!isSignup);
   }
 
-  const handleScroll = () => {
-    const navMenuButton = document.getElementById("navMenuButton");
-    if (navMenuButton) {
-      const currentScrollPos = window.scrollY;
-  
-      if (isOpen) {
-        setIsOpen(false);
-      }
-  
-      if (currentScrollPos === 0 ||currentScrollPos < 0) {
-        // Scroll to top, show the navMenuButton
-        navMenuButton.style.display="block";
-      } else if (currentScrollPos > 0) {
-        // Scrolling down, hide the navMenuButton
-        navMenuButton.style.display="none";
-      }
-    }
-  };
-  
-
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      // Cleanup the event listener when the component is unmounted
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isOpen]);
-
-
-
   return (
     <div className="appBody">
       <AuthProvider>
         <Router>
           <div>
             <LearnGuruNavbar isSignup={isSignup} toggleSignup={toggleSignup} />
-            <Row>
-             
-                <div className="lgMenu">
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <Button
-                    className="menuButton"
-                    onClick={toggle}
-                    
-                    style={{ marginBottom: "1rem" }}
-                  >
-                    <div id="navMenuButton">
-                    <span className="MenuBarHeading">Menu</span>{" "}
-                    <FontAwesomeIcon
-                      icon={faAngleRight}
-                      beat
-                      size="2xl"
-                      id="TooltipExample"
-                      style={{ color: "#162237" }}
-                    />
-                    </div>
-                  </Button>
-                  <Collapse isOpen={isOpen}>
-                    <MenuNavbar />
-                  </Collapse>
-                </div>
-              </div>
-              
-             
-              <Col md={12}>
-                {/* style={isOpen?{marginLeft:'60px'}:{marginLeft:'10px'}} */}
                 <Routes>
                   <Route path="/" element={<LGHome />} />
                   <Route
@@ -137,6 +72,8 @@ function App() {
                       />
                     }
                   />
+                  <Route path="/newlog_in" element={<UserLogIn />} />
+
                   <Route path="/addCourse" element={<AddCourse />} />
                   <Route path="/trainerHome" element={<TrainerHome />} />
                   <Route path="updateCoursePage" element={<UpdateCoursePage />} />
@@ -187,8 +124,6 @@ function App() {
 
 
                 </Routes>
-              </Col>
-            </Row>
           </div>
         </Router>
       </AuthProvider>

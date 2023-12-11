@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+
+.trainerModal{
+    border: 1px solid teal !important;
+    font-family: Teko !important;
+    border-radius: 15px;
+}
+
+.modalInput{
+    width: 300px !important;
+    margin-left: 20px;
+    font-size: 25px !important;
+    border-color: aqua;
+    padding: none !important;
+    color: #2C5F2D !important;
+}
+.modalLabel{
+    font-family: Teko !important;
+    margin-left: 10px;
+    font-size: 25px;
+    color:#343148;
+}
+
+.modalButton {
+    background-image: linear-gradient(to right, #134E5E 0%, #71B280  51%, #134E5E  100%) !important;
+    width: 140px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: 25px;
+    padding: 10px 35px !important;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .modalButton:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+
+  .loader{
+    color: red;
+    top:50%;
+    left: 50%;
+}
