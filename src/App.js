@@ -31,11 +31,15 @@ import EnrollCousePage from "./StudentComponent/EnrollCousePage";
 import EnrolledCourse from "./StudentComponent/EnrolledCourse";
 import GetEnrolledLesson from "./StudentComponent/GetEnrolledLesson";
 import UserLogIn from "./MainComponents/UserLogIn";
+import {useNavigate } from "react-router-dom";
+
 function App() {
 
 
   const { user } = useAuth();
   const [isSignup, setIsSignup] = useState(false);
+
+  //const navigate = useNavigate();
 
 
   const setSignup = () => {
@@ -45,6 +49,9 @@ function App() {
   const toggleSignup =()=>{
     setIsSignup(!isSignup);
   }
+ 
+  
+
 
   return (
     <div className="appBody">

@@ -9,7 +9,7 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  //const navigate = useNavigate();
+ // const navigate = useNavigate();
 
 
   const [user, setUser] = useState(null);
@@ -20,6 +20,7 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
+    // navigate("/")
     setUser(null);
   };
 

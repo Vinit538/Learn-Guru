@@ -125,6 +125,8 @@ const LearnGuruNavbar = ({ isSignup, toggleSignup }) => {
     };
   }, []);
 
+ 
+
 
   const handleLogoutClick = () => {
     logout();
